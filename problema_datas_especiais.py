@@ -1,8 +1,12 @@
 '''
-Enunciado da questão da prova da OBMEP:
+O código fornece uma solução "força bruta" para o problema de análise combinatória da questão
+da provada OBMEP (2021) para a sexta série.
 
-No período de 2000 a 2100 tem quantos anos com dia especial?
-Dia especial tem os digitos 0, 1, 2, 3, 4 e 5, sem repetição de digito. Formato da data dd/mm/aa. Exemplo: 03/12/45
+[Enunciado aproximado] No período de 2000 a 2100 tem quantos anos com dia especial? Dia 
+especial tem os digitos 0, 1, 2, 3, 4 e 5, sem repetição de digito. Formato da data dd/mm/aa.
+Exemplo: 03/12/45
+
+PS.: Não tive acesso a prova para obter o enunciado exato.
 '''
 # 1) Listar todas as opções possíveis.
 digitos = '012345'
@@ -28,9 +32,10 @@ for data in list_data_text :
     mes = int(data[2:4])
     ano = int(data[4:6])
     if (dia<=31) and (mes<=12) :
-        lista_datas.append(data)
-        if ano not in lista_anos :
-            lista_anos.append(ano)
+        if ((dia<=30) and (mes%2 == 0)) or (mes%2 == 1) :
+            lista_datas.append(data)
+            if ano not in lista_anos :
+                lista_anos.append(ano)
 
 # 3) Imprimir o tamanho da lista com os anos.
 # print(lista_datas)
