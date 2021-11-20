@@ -27,15 +27,16 @@ for dig1 in digitos :
 # 2) Avaliar, dentre as opções, aquelas que são uma data válida. Separar anos únicos em uma lista à parte.
 lista_anos = []
 lista_datas = []
+m31 = [1,3,5,7,8,10,12]
+m30 = [2,4,6,9,11]
 for data in list_data_text :
     dia = int(data[0:2])
     mes = int(data[2:4])
     ano = int(data[4:6])
-    if (dia<=31) and (mes<=12) :
-        if ((dia<=30) and (mes%2 == 0)) or (mes%2 == 1) :
-            lista_datas.append(data)
-            if ano not in lista_anos :
-                lista_anos.append(ano)
+    if ((dia<=30) and (mes in m30)) or ((dia<=31) and (mes in m31)) :
+        lista_datas.append(data)
+        if ano not in lista_anos :
+            lista_anos.append(ano)
 
 # 3) Imprimir o tamanho da lista com os anos.
 # print(lista_datas)
